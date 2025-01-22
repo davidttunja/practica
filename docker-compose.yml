@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    ports:
+      - "27017:27017"
+
+  auth-service:
+    build: ./auth-service
+    ports:
+      - "4000:4000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/authDB
+      - JWT_SECRET=mi_secreto
+    depends_on:
+      - mongo
+
+  products-service:
+    build: ./products-service
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/productsDB
+      - AUTH_URL=http://auth-service:4000
+    depends_on:
+      - mongo
+      - auth-service
