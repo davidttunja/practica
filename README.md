@@ -23,17 +23,38 @@ Postman o cURL para probar la API.
 Opcional: un editor de texto o IDE como Visual Studio Code.
 
 3. Configuración Inicial
-Navega a la carpeta del proyecto practica.
-Limpia y reinstala los paquetes de Node.js para evitar problemas:
+Clona el repositorio y navega a la carpeta del proyecto:
+
+
+git clone <URL-DEL-REPOSITORIO>
+cd practica
+Limpia y reinstala los paquetes de Node.js:
+
 Elimina las carpetas node_modules y los archivos package-lock.json en las carpetas:
-bash
-Copiar
-Editar
-/auth-service
-/products-service
-Ejecuta los siguientes comandos dentro de cada carpeta:
+
+cd auth-service
+rm -rf node_modules package-lock.json
 npm cache clean --force
 npm install
+cd ../products-service
+rm -rf node_modules package-lock.json
+npm cache clean --force
+npm install
+Configura las variables de entorno:
+
+Crea un archivo .env en cada servicio con las siguientes variables:
+En /auth-service/.env:
+
+
+MONGO_URI=mongodb://mongo:27017/authdb
+JWT_SECRET=tu_secreto
+PORT=4000
+En /products-service/.env:
+
+
+MONGO_URI=mongodb://mongo:27017/productsdb
+JWT_SECRET=tu_secreto
+PORT=5000
 4. Ejecutar la Práctica
 Iniciar los servicios con Docker Compose:
 docker-compose up --build
