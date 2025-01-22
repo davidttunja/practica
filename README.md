@@ -1,20 +1,20 @@
-# MICROSERVICIOS
-# Este proyecto implementa un sistema de autenticación (Auth Service) y un servicio de gestión de productos (Products Service) basado en microservicios. Los servicios están contenedorizados con Docker y se comunican a través de una red compartida.
+MICROSERVICIOS
+ Este proyecto implementa un sistema de autenticación (Auth Service) y un servicio de gestión de productos (Products Service) basado en microservicios. Los servicios están contenedorizados con Docker y se comunican a través de una red compartida.
 
 ## 1. Estructura del Proyecto
- /practica
-│
-├── /auth-service/
-│   - Lógica para registro de usuarios, inicio de sesión y verificación de tokens.
-│
-├── /products-service/
-│   - Gestión de productos: creación y consulta de productos protegidos por autenticación.
-│
-├── docker-compose.yml
-│   - Configuración de Docker Compose para levantar los servicios en contenedores separados.
-│
-└── README.md
+practica
+ /auth-service/
+- Lógica para registro de usuarios, inicio de sesión y verificación de tokens.
+
+/products-service/
+- Gestión de productos: creación y consulta de productos protegidos por autenticación.
+
+docker-compose.yml
+- Configuración de Docker Compose para levantar los servicios en contenedores separados.
+
+README.md
     - Documentación del proyecto.
+
 2. Pre-requisitos
 Tener instalados:
 Docker: Descargar Docker.
